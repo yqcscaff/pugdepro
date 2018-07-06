@@ -1,1 +1,5 @@
-console.table(['小鸡', '小鸟', '小黑']);
+/**
+ * 应用入口
+ */
+
+import './config/router';
