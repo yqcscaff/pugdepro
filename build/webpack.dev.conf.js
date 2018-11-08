@@ -7,14 +7,28 @@ const config = require('../config');
 const baseWebpackConfig = require('./webpack.base.conf');
 
 module.exports = merge(baseWebpackConfig, {
+  mode: config.dev.env.NODE_ENV,
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/](react|react-dom|react-router)/,
+          name: 'commons',
+        },
+      }
+    }
+  },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': config.dev.env
+      'process.env': {
+        'NODE_ENV': JSON.stringify(config.dev.env.NODE_ENV)
+      }
     }),
     new HtmlwebpackPlugin({
       title: 'Webpack-demos',
       filename: 'index.html',
-      template: './src/index.html',
+      template: './index.html',
       inject: true,
       minify: {
         collapseWhitespace: false,

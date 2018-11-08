@@ -19,11 +19,16 @@ const app = express()
 const compiler = webpack(webpackConfig)
 
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
-  publicPath: webpackConfig.output.publicPath
+  publicPath: webpackConfig.output.publicPath,
+  stats: {
+    colors: true
+  }
 })
 
 // 热模块更新 hotMiddle
-app.use(require('webpack-hot-middleware')(compiler))
+app.use(require('webpack-hot-middleware')(compiler, {
+  info: false
+}))
 
 // 代理  proxyMiddle
 Object.keys(proxyTable).forEach(function (context) {
@@ -43,30 +48,12 @@ app.use(devMiddleware);
 // 静态资源目录
 const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./public'))
-
-
-var _resolve
-var _reject
-var readyPromise = new Promise((resolve, reject) => {
-  _resolve = resolve
-  _reject = reject
+app.get('*', function(res) {
+  res.sendFile(path.join(__dirname, 'index.html'))
 })
 
-var server
-var portfinder = require('portfinder')
-portfinder.basePort = port
-
-console.log('> Starting dev server...')
-devMiddleware.waitUntilValid(() => {
-  portfinder.getPort((err, port) => {
-    if (err) {
-      _reject(err)
-    }
-    process.env.PORT = port
-    var uri = 'http://localhost:' + port
-    console.log('> Listening at ' + uri + '\n')
-    opn(uri);
-    server = app.listen(port)
-    _resolve()
-  })
-})
+// 启动
+const uri = 'http://localhost:' + port
+console.log('> Listening at ' + uri + '\n')
+app.listen(port);
+opn(uri);

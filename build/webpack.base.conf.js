@@ -4,14 +4,15 @@ const utils = require('../utils/utils');
 
 module.exports = {
   entry: {
-    app: './src/index.js'
+    app: './index.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: '[name].js',
+    filename: '[name]' + '.[hash:8]' + '.js',
+    chunkFilename: '[id]' + '.[hash:8]' + '.js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+      : config.dev.assetsPublicPath,
   },
   resolve: {
     extensions: ['.js', '.css', 'json']
@@ -19,7 +20,22 @@ module.exports = {
   module: {
     rules: [{
       test: /\.css$/,
-      use: ['style-loader', 'css-loader']
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: true
+          }
+        }
+      ]
+    }, {
+      test: /\.less$/,
+      loader: [
+        'style-loader',
+        'css-loader',
+        'less-loader'
+      ]
     }, {
       test: /\.js[x]?$/,
       exclude: /node_modules/,
