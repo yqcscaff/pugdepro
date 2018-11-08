@@ -5,5 +5,10 @@
       "libraryName": "antd",
       "style": "css"
     }
-  ]]
+  ]],
+  "env": {
+    "production": {
+      "presets": ["minify"]
+    }
+  }
 }
