@@ -1,7 +1,41 @@
 import React from 'react';
+import styles from './index.less';
 
-export default () => {
-  return (
-    <div>代办事项</div>
-  );
-};
+const FETCH_URL = '/j/search_subjects';
+class Dashboard extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      list: []
+    };
+  }
+  componentDidMount() {
+    fetch(FETCH_URL + '?type=movie&tag=热门&page_limit=50&page_start=0').then(res => res.json()).then(res => {
+      console.log(res.subjects);
+      this.setState({
+        list: res.subjects
+      });
+    });
+  }
+  render() {
+    const { list } = this.state;
+    return (
+      <div className={styles.dashboard}>
+        {
+          list.map(item => {
+            return (
+              <div className={styles.item} key={item.id}>
+                <img className={styles.thumnail} src={item.cover} alt="cover" />
+                <div className={styles.content}>
+                  <div>{item.rate}</div>
+                  <div>{item.title}</div>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    );
+  }
+}
+export default Dashboard;

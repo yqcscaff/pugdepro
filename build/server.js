@@ -48,7 +48,7 @@ app.use(devMiddleware);
 // 静态资源目录
 const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./public'))
-app.get('*', function(res) {
+app.get('/', function(res) {
   res.sendFile(path.join(__dirname, 'index.html'))
 })
 

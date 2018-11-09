@@ -17,15 +17,15 @@ module.exports = {
     env: {
       NODE_ENV: 'development'
     },
-    port: process.env.PORT || 8080,
+    port: process.env.PORT || 8000,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api': {
-        target: 'http://movie.douban.com',
+      '/j/search_subjects': {
+        target: 'https://movie.douban.com/',
         changeOrigin: true,
         pathRewrite: {
-          '^/api': '/api'
+          '^/j/search_subjects': '/j/search_subjects'
         }
       }
     },
