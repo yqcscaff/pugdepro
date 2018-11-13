@@ -1,12 +1,39 @@
-.app {
-  display: flex;
-  font-size: 50px;
-}
-.nav-link {
-  width: 300px;
-  margin-right: 30px;
-  border-right: 1px solid #31411F;
-}
-.content-wreapper {
-  flex: 1;
+
+:global {
+  .prayer-wrapper {
+    display: flex;
+  }
+  .slider {
+    width: 200px;
+    flex: 0 0 200px;
+    max-width: 200px;
+    min-width: 200px;
+    margin-right: 10px;
+  }
+  .prayer-layout-sider {
+    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+    background: #001529;
+  }
+  .prayer-pro-components-sider {
+    min-height: 100vh;
+    position: relative;
+    z-index: 10;
+  }
+  .prayer-wrapper-content {
+    flex: 1;
+  }
+  .prayer-slider-ul-menu {
+    padding: 0;
+  }
+  .prayer-slider-ul-menu > li > a {
+    color: #fff;
+  }
+  .prayer-menu-item {
+    width: 100%;
+    padding-left: 48px;
+    background-color: #1890ff;
+    line-height: 40px;
+    height: 40px;
+    box-sizing: border-box;
+  }
 }

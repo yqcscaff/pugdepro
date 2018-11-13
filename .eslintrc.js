@@ -19,6 +19,8 @@ module.exports = {
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
-    "no-console": 0
+    "no-console": 0,
+    "react/destructuring-assignment": [0, 'always'],
+    "no-debugger": 0
   }
 };
