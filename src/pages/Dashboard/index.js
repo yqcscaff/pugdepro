@@ -10,8 +10,7 @@ class Dashboard extends React.Component {
     };
   }
   componentDidMount() {
-    fetch(FETCH_URL + '?type=movie&tag=热门&page_limit=50&page_start=0').then(res => res.json()).then(res => {
-      console.log(res.subjects);
+    fetch(FETCH_URL + '?type=movie&tag=热门&page_limit=5&page_start=0').then(res => res.json()).then(res => {
       this.setState({
         list: res.subjects
       });

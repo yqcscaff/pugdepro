@@ -1,9 +1,17 @@
 {
-  "presets": ["es2015", "react"],
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
   "plugins": [[
     "import", {
       "libraryName": "antd",
       "style": "css"
+    }
+  ], [
+    "@babel/plugin-proposal-object-rest-spread", {
+      "loose": true,
+      "useBuiltIns": true
     }
   ]],
   "env": {

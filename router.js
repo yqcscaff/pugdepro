@@ -5,18 +5,32 @@ import React from 'react';
 import { render } from 'react-dom';
 import {
   BrowserRouter as Router,
+  Redirect,
+  Switch,
   Route
 } from 'react-router-dom';
 import App from './src/components/App';
 import NotFound from './src/components/NotFound';
+import Header from './src/components/Header';
 import Dashboard from './src/pages/Dashboard';
+import Overview from './src/pages/Overview';
 
 export default render((
   <Router>
-    <div>
-      <Route path='/' component={App} />
-      <Route path='/dashboard' component={Dashboard} />
-      <Route path='/NotFound' component={NotFound} />
-    </div>
+    <App>
+      <Header />
+      <Switch>
+        <Route
+          path="/"
+          exact
+          render={() => (
+            <Redirect from="/" to="/dashboard" />
+          )}
+        />
+        <Route path='/dashboard' component={Dashboard} />
+        <Route path='/overview' component={Overview} />
+        <Route component={NotFound} />
+      </Switch>
+    </App>
   </Router>
 ), document.getElementById('app'));

@@ -12,10 +12,10 @@ module.exports = merge(baseWebpackConfig, {
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/](react|react-dom|react-router)/,
-          name: 'commons',
-        },
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+        }
       }
     }
   },

@@ -25,7 +25,8 @@ module.exports = {
         {
           loader: 'css-loader',
           options: {
-            modules: true
+            modules: true,
+            localIdentName: '[hash:base64:6]'
           }
         }
       ]
@@ -33,13 +34,19 @@ module.exports = {
       test: /\.less$/,
       loader: [
         'style-loader',
-        'css-loader?modules',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+            localIdentName: '[hash:base64:6]'
+          }
+        },
         'less-loader'
       ]
     }, {
       test: /\.js[x]?$/,
       exclude: /node_modules/,
-      loader: 'babel-loader',
+      loader: 'babel-loader'
     }, {
       test: /\.(png|jpe?g|gif|svg)$/,
       use: [

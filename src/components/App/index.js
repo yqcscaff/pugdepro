@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import styles from './index.less';
+import classNames from 'classnames';
+import 'normalize.css';
+import './index.less';
 
 class App extends Component {
   constructor() {
@@ -8,11 +9,19 @@ class App extends Component {
     this.state = {};
   }
   render() {
+    const { children, location } = this.props;
+    console.log(location);
     return (
-      <div className={styles['nav-link']}>
-        <ul>
-          <li><Link to='/dashboard'>Dashboard</Link></li>
-        </ul>
+      <div className="prayer-wrapper">
+        <div className={classNames('slider', 'prayer-layout-sider', 'prayer-pro-components-sider')}>
+          <ul className="prayer-slider-ul-menu">
+            <li className="prayer-menu-item"><a href='/dashboard'>Dashboard</a></li>
+            <li className="prayer-menu-item"><a href='/overview'>overview</a></li>
+          </ul>
+        </div>
+        <div className="prayer-wrapper-content">
+          {children}
+        </div>
       </div>
     );
   }
