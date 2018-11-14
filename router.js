@@ -11,14 +11,12 @@ import {
 } from 'react-router-dom';
 import App from './src/components/App';
 import NotFound from './src/components/NotFound';
-import Header from './src/components/Header';
 import Dashboard from './src/pages/Dashboard';
 import Overview from './src/pages/Overview';
 
 export default render((
   <Router>
     <App>
-      <Header />
       <Switch>
         <Route
           path="/"

@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.less';
 
 const NotFound = () => {
   return (
@@ -9,4 +10,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export { NotFound as default };

@@ -8,7 +8,6 @@
     flex: 0 0 200px;
     max-width: 200px;
     min-width: 200px;
-    margin-right: 10px;
   }
   .prayer-layout-sider {
     box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
@@ -20,20 +19,28 @@
     z-index: 10;
   }
   .prayer-wrapper-content {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
   }
   .prayer-slider-ul-menu {
     padding: 0;
   }
   .prayer-slider-ul-menu > li > a {
     color: #fff;
-  }
-  .prayer-menu-item {
+    text-decoration: none;
+    display: block;
     width: 100%;
     padding-left: 48px;
-    background-color: #1890ff;
+    box-sizing: border-box;
+  }
+  .prayer-menu-item {
+    cursor: pointer;
+    width: 100%;
     line-height: 40px;
     height: 40px;
-    box-sizing: border-box;
+  }
+  .prayer-menu-item.active {
+    background-color: #1890ff;
   }
 }

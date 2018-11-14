@@ -5204,7 +5204,7 @@ repeating@^2.0.0:
   dependencies:
     is-finite "^1.0.0"
 
-request@^2.83.0:
+request@^2.83.0, request@^2.88.0:
   version "2.88.0"
   resolved "http://registry.corp.bianlifeng.com/request/download/request-2.88.0.tgz#9c2fca4f7d35b592efe57c7f0a55e81052124fef"
   dependencies:
