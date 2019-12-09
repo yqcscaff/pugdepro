@@ -29,18 +29,21 @@ npm install
 
 ```sh
 npm start
+// Local dev
 ```
 
 ## ✨Run Build
 
 ```sh
 npm run build
+// Online code packaged to dist
 ```
 
 ## 🐔Run Docs
 
 ```sh
 npm run docs
+// Generate the docs directory of githubpage and test the online code with githubpage
 ```
 
 ## 🎮Run tests
@@ -114,7 +117,7 @@ import MovieList from  'bundle-loader?lazy&name=lazy-[name]!../src/view/MovieLis
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/tr-yanqing/scaffold/issues).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/yqcscaff/pugdepro/issues).
 
 ## Show your support
 
@@ -122,4 +125,4 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-This project is [MIT](https://github.com/tr-yanqing/scaffold/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/yqcscaff/pugdepro/blob/master/LICENSE) licensed.
